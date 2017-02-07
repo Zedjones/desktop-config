@@ -40,8 +40,8 @@ XTerm*faceSize: 11
 
 ! URxvt settings
 
-URxvt*font:              xft:Fantasque Sans Mono:size=12,xft:Inconsolata\ for\ Powerline:size=13
-URxvt*boldFont:          xft:Fantasque Sans Mono:size=12,xft:Inconsolata\ for\ Powerline:size=13
+URxvt*font:              xft:GohuFont \Powerline:size=12,xft:GohuFont\ Powerline:size=13
+URxvt*boldFont:          xft:GohuFont \Powerline\:style=bold:size=12,xft:GohuFont\ Powerline:size=13
 URxvt*loginShell:        true
 URxvt*scrollBar:         false 
 URxvt*letterSpace:       -1
@@ -52,8 +52,8 @@ URxvt.buffered:          true
 URxvt.perl-ext:          default,matcher
 URxvt.urlLauncher:       /usr/bin/google-chrome-stable
 URxvt.matcher.button:    1 
-URxvt.transparent:       True
-URxvt.shading:           10
+URxvt.transparent:       False
+URxvt.shading:           5
 
 URxvt*foreground:   #1abc9c
 URxvt*background:   #1F2D3A
@@ -91,3 +91,12 @@ URxvt*keysym.Shift-Control-V: perl:clipboard:paste
 URxvt*iso14755: False
  
 URxvt*perl-ext-common: default,clipboard
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #273238, #273238, #1e2529
+rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844

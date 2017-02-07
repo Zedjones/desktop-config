@@ -1,0 +1,16 @@
+#!/bin/python3
+
+import forecastio
+api_key = "DARK_SKY_API_KEY"
+lon = LONGTITUDE
+lat = LATITUDE
+
+forecast = forecastio.load_forecast(api_key, lat, lon)
+byHour = forecast.hourly()
+current = forecast.currently()
+if "." ==  byHour.summary[-1]:
+	byHour.summary = byHour.summary[:-1]
+if "throughout the day" in byHour.summary:
+	byHour.summary = byHour.summary[:-19]
+print("Now: " + current.summary +", "+ str(int(current.temperature)) + " °F" + " | Day: " + byHour.summary)
+
