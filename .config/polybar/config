@@ -21,10 +21,12 @@ alert = #bd2c40
 [bar/topr]
 ;monitor = ${env:MONITOR:HDMI-1}
 monitor = ${env:MONITOR:DP-0}
+wm-restack = i3
+;override-redirect = true
 width = 100%
 height = 27
-;offset-x = 1%
-;offset-y = 1%
+offset-x = 15
+offset-y = 0
 radius = 6.0
 fixed-center = false
 
@@ -38,7 +40,7 @@ border-size = 4
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
 module-margin-left = 1
 module-margin-right = 2
@@ -50,14 +52,15 @@ font-0 = GohuFont\ Powerline:pixelsize=10;1
 font-1 = GohuFont\ Powerline:fontformat=truetype:size=8:antialias=false;0
 font-2 = GohuFont\ Powerline:pixelsize=10;1
 
-modules-left = bspwm i3 memory cpu temperature
+modules-left =  memory cpu temperature
 modules-center = mpd
-modules-right = xbacklight volume weather xkeyboard wlan date powermenu
+modules-right =  volume weather date powermenu
 
-tray-position = right
-tray-padding = 2
+;tray-position = center
+;tray-padding = 10
 ;tray-transparent = true
 ;tray-background = #0063ff
+tray-offset-x = 10
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -67,18 +70,19 @@ tray-padding = 2
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 [bar/topl]
 ;monitor = ${env:MONITOR:HDMI-1}
 monitor = ${env:MONITOR:DVI-D-0}
 width = 100%
 height = 27
-;offset-x = 1%
-;offset-y = 1%
+offset-x = 25%
+;override-redirect = true
+offset-y = 0%
 radius = 6.0
-fixed-center = false
+fixed-center = true
 
 background = #1F2D3A
 foreground = ${colors.foreground}
@@ -90,7 +94,7 @@ border-size = 4
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
 module-margin-left = 1
 module-margin-right = 2
@@ -102,17 +106,17 @@ font-0 = GohuFont\ Powerline:pixelsize=10;1
 font-1 = GohuFont\ Powerline:fontformat=truetype:size=8:antialias=false;0
 font-2 = GohuFont\ Powerline:pixelsize=10;1
 
-modules-left = bspwm i3 memory cpu temperature
+modules-left =  memory cpu temperature
 modules-center = mpd
-modules-right =  xbacklight volume weather xkeyboard  wlan date powermenu
+modules-right =  volume weather date powermenu
 
-tray-position = right
-tray-padding = 2
+;tray-position = right
+;tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
-;wm-restack = i3
+wm-restack = i3
 
 ;override-redirect = true
 
@@ -160,7 +164,6 @@ format = <label>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 exec =  ~/.config/polybar/test2
-click-left = urxvt ~/.config/polybar/test
 label = %output%
 
 [module/bspwm]
@@ -266,7 +269,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #4bffdc
-label = %gb_used%/%gb_free%
+label = %gb_used%/%gb_total%
 
 [module/wlan]
 type = internal/network
@@ -430,8 +433,9 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 
+
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
 
 ; vim:ft=dosini
