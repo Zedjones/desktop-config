@@ -8,9 +8,13 @@ lat = LATITUDE
 forecast = forecastio.load_forecast(api_key, lat, lon)
 byHour = forecast.hourly()
 current = forecast.currently()
+
 if "." ==  byHour.summary[-1]:
 	byHour.summary = byHour.summary[:-1]
 if "throughout the day" in byHour.summary:
 	byHour.summary = byHour.summary[:-19]
+
+later = [match.start() for match in re.finditer(r'later', byHour.summary)]
+byHour.summary = byHour.summary[:later[0]]
 print("Now: " + current.summary +", "+ str(int(current.temperature)) + " °F" + " | Day: " + byHour.summary)
 
