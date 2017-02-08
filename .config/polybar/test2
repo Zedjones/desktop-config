@@ -13,8 +13,8 @@ if "." ==  byHour.summary[-1]:
 	byHour.summary = byHour.summary[:-1]
 if "throughout the day" in byHour.summary:
 	byHour.summary = byHour.summary[:-19]
-
-later = [match.start() for match in re.finditer(r'later', byHour.summary)]
-byHour.summary = byHour.summary[:later[0]]
-print("Now: " + current.summary +", "+ str(int(current.temperature)) + " °F" + " | Day: " + byHour.summary)
+if "later" in byHour.summary:
+	later = [match.start() for match in re.finditer(r'later', byHour.summary)]
+	byHour.summary = byHour.summary[:later[0]]
+print("Now: " + current.summary +", "+ str(int(current.temperature)) + " °F" + " | Later: " + byHour.summary)
 
