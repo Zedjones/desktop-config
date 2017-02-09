@@ -50,7 +50,7 @@ exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/google-chrome-stable'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e sh -c ncmpcpp'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e sh -c cava'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e sh -c htop'
-exec_always --no-startup-id xautolock -time 10 -locker '~/.config/i3/lock.sh'
+exec_always --no-startup-id xautolock -time 10 -locker 'lock -f GohuFont-for-Powerline'
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #special binds
