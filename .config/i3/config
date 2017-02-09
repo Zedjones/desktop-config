@@ -29,6 +29,7 @@ font pango:Fantasque Sans Mono 10
 
 #gaps settings
 for_window [class="^.*"] border pixel 3
+for_window [class="Thunar"] floating enable
 gaps inner 15 
 gaps outer 0
 client.focused  #1F2D3A #00C1FF #000088 #1F2D3A  #1F2D3A
@@ -62,6 +63,9 @@ bindsym XF86AudioNext exec mpc next
 bindsym Control+Mod1+t exec urxvt
 bindsym XF86Explorer exec ~/.config/i3/lock.sh
 bindsym Print exec gnome-screenshot
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 1%-
+bindsym XF86AudioMute exec amixer -q sset Master toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

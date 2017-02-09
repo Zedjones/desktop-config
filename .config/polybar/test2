@@ -1,20 +1,29 @@
 #!/bin/python3
 
-import forecastio
-api_key = "DARK_SKY_API_KEY"
-lon = LONGTITUDE
-lat = LATITUDE
+import forecastio, re
+api_key = "4bc10b6fd4106811bc5d4a1f05d57a76"
+lon = -77.668721
+lat = 43.083652
 
 forecast = forecastio.load_forecast(api_key, lat, lon)
 byHour = forecast.hourly()
 current = forecast.currently()
-
 if "." ==  byHour.summary[-1]:
 	byHour.summary = byHour.summary[:-1]
-if "throughout the day" in byHour.summary:
-	byHour.summary = byHour.summary[:-19]
+if "throughout" in byHour.summary:
+	later = [match.start() for match in re.finditer(r'throughout', byHour.summary)]
+	byHour.summary = byHour.summary[:later[0]]
 if "later" in byHour.summary:
 	later = [match.start() for match in re.finditer(r'later', byHour.summary)]
+	byHour.summary = byHour.summary[:later[0]]
+if "and" in byHour.summary:
+	later = [match.start() for match in re.finditer(r'and', byHour.summary)]
+	byHour.summary = byHour.summary[:later[0]]
+if "," in byHour.summary:
+	later = [match.start() for match in re.finditer(r',', byHour.summary)]
+	byHour.summary = byHour.summary[:later[0]]
+if "starting" in byHour.summary:
+	later = [match.start() for match in re.finditer(r'starting', byHour.summary)]
 	byHour.summary = byHour.summary[:later[0]]
 print("Now: " + current.summary +", "+ str(int(current.temperature)) + " °F" + " | Later: " + byHour.summary)
 
