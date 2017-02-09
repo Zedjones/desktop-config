@@ -50,7 +50,7 @@ exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/google-chrome-stable'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e sh -c ncmpcpp'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e sh -c cava'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e sh -c htop'
-exec_always --no-startup-id xautolock -time 10 -locker 'lock -f GohuFont-for-Powerline'
+exec_always --no-startup-id xautolock -time 10 -locker 'lock -pf GohuFont-for-Powerline'
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #special binds
@@ -61,7 +61,7 @@ bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next
 bindsym Control+Mod1+t exec urxvt
-bindsym XF86Explorer exec ~/.config/i3/lock.sh
+bindsym XF86Explorer exec lock -pf GohuFont-for-Powerline
 bindsym Print exec gnome-screenshot
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 1%-
