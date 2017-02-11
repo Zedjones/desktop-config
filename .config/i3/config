@@ -30,9 +30,10 @@ font pango:Fantasque Sans Mono 10
 #gaps settings
 for_window [class="^.*"] border pixel 3
 for_window [class="Thunar"] floating enable
+for_window [class="I3-exit" instance="i3-exit"] floating enable
 gaps inner 15 
 gaps outer 0
-client.focused  #1F2D3A #00C1FF #000088 #1F2D3A  #1F2D3A
+client.focused  #2AA198 #00C1FF #000088 #2AA198  #2AA198
 client.focused_inactive  #1F2D3A #2C2C2C  #ffffff #1F2D3A #1F2D3A
 client.unfocused  #1F2D3A #2C2C2C #ffffff #1F2D3A #1F2D3A
 client.urgent  #1F2D3A #00C1FF #000088 #1F2D3A #1F2D3A
@@ -66,6 +67,7 @@ bindsym Print exec gnome-screenshot
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 1%-
 bindsym XF86AudioMute exec amixer -q sset Master toggle
+bindsym $mod+Shift+E exec ~/.config/i3/i3-exit
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -162,7 +164,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
