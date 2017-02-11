@@ -29,27 +29,21 @@ class i3_exit:
         self.disable_buttons()
         self.status.set_label("Suspending, please standby...")
         os.system("i3-lock")
-        os.system("dbus-send --system --print-reply \
-                --dest=\"org.freedesktop.UPower\"   \
-                /org/freedesktop/UPower             \
-                org.freedesktop.UPower.Suspend")
+        os.system('dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 \
+        "org.freedesktop.login1.Manager.Suspend" boolean:true')
         gtk.main_quit()
 
     def reboot_action(self,btn):
         self.disable_buttons()
         self.status.set_label("Rebooting, please standby...")
-        os.system("dbus-send --system --print-reply   \
-                --dest=\"org.freedesktop.ConsoleKit\" \
-                /org/freedesktop/ConsoleKit/Manager   \
-                org.freedesktop.ConsoleKit.Manager.Restart")
+        os.system('dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 \
+        "org.freedesktop.login1.Manager.Reboot" boolean:true')
 
     def shutdown_action(self,btn):
         self.disable_buttons()
         self.status.set_label("Shutting down, please standby...")
-        os.system("dbus-send --system --print-reply   \
-                --dest=\"org.freedesktop.ConsoleKit\" \
-                /org/freedesktop/ConsoleKit/Manager   \
-                org.freedesktop.ConsoleKit.Manager.Stop")
+        os.system('dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 \
+        "org.freedesktop.login1.Manager.PowerOff" boolean:true')
 
     def create_window(self):
         self.window = gtk.Window()
