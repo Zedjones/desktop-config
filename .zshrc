@@ -10,6 +10,10 @@
 ZSH_THEME="pure"
 
 export labs=/home/zedjones/Documents/CS2/Labs/
+export WM=i3-gaps
+
+#autostart wal
+(wal -r &)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

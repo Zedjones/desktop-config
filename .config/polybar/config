@@ -17,20 +17,20 @@ foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+bg = ${xrdb:color0:#1F2D3A}
+fg = ${xrdb:color7:#2AA198}
 
 [bar/topr]
 ;monitor = ${env:MONITOR:HDMI-1}
 monitor = ${env:MONITOR:DP-0}
-wm-restack = i3
-;override-redirect = true
-width = 100%
+width = 2487
 height = 27
-offset-x = 15
-offset-y = 0
+offset-x = 37
+;offset-y = 0
 radius = 6.0
 fixed-center = false
 
-background = #1F2D3A
+background = ${colors.bg}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -43,7 +43,7 @@ padding-left = 0
 padding-right = 0
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 ;font-0 = fixed:pixelsize=10;1
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
@@ -52,7 +52,7 @@ font-0 = GohuFont\ Powerline:pixelsize=10;1
 font-1 = GohuFont\ Powerline:fontformat=truetype:size=8:antialias=false;0
 font-2 = GohuFont\ Powerline:pixelsize=10;1
 
-modules-left =  memory cpu temperature
+modules-left =  i3 memory cpu 
 modules-center = mpd
 modules-right =  volume weather date powermenu
 
@@ -60,13 +60,13 @@ modules-right =  volume weather date powermenu
 ;tray-padding = 10
 ;tray-transparent = true
 ;tray-background = #0063ff
-tray-offset-x = 10
+;tray-offset-x = 10
 
 ;wm-restack = bspwm
+
+override-redirect = true
+
 ;wm-restack = i3
-
-;override-redirect = true
-
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
 
@@ -76,15 +76,15 @@ scroll-down = i3wm-wsprev
 [bar/topl]
 ;monitor = ${env:MONITOR:HDMI-1}
 monitor = ${env:MONITOR:DVI-D-0}
-width = 100%
+width = 1850
 height = 27
-offset-x = 25%
+offset-x = 36
 ;override-redirect = true
-offset-y = 0%
+offset-y = 0
 radius = 6.0
-fixed-center = true
+fixed-center = false
 
-background = #1F2D3A
+background = ${colors.bg}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -97,7 +97,7 @@ padding-left = 0
 padding-right = 0
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 #font-0 = fixed:pixelsize=10;1
 #font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
@@ -106,7 +106,7 @@ font-0 = GohuFont\ Powerline:pixelsize=10;1
 font-1 = GohuFont\ Powerline:fontformat=truetype:size=8:antialias=false;0
 font-2 = GohuFont\ Powerline:pixelsize=10;1
 
-modules-left =  memory cpu temperature
+modules-left =  i3 memory cpu
 modules-center = mpd
 modules-right =  volume weather date powermenu
 
@@ -116,9 +116,9 @@ modules-right =  volume weather date powermenu
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
-wm-restack = i3
+wm-restack = i3 
 
-;override-redirect = true
+override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -201,7 +201,7 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 ;label-focused-background = ${module/bspwm.label-focused-background}
-;label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-underline = ${colors.fg}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
@@ -211,7 +211,7 @@ label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
 ;label-visible-background = ${self.label-focused-background}
-;label-visible-underline = ${self.label-focused-underline}
+label-visible-underline = ${colors.fg}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -269,7 +269,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #4bffdc
-label = %gb_used%/%gb_total%
+label = %gb_used% used 
 
 [module/wlan]
 type = internal/network
@@ -337,11 +337,11 @@ format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-0 = ${colors.fg}
+bar-volume-foreground-1 = ${colors.fg}
+bar-volume-foreground-2 = ${colors.fg}
+bar-volume-foreground-3 = ${colors.fg}
+bar-volume-foreground-4 = ${colors.fg}
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false

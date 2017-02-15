@@ -27,21 +27,38 @@ font pango:Fantasque Sans Mono 10
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+#set colors from .Xresources
+set_from_resource $fg i3wm.color7 #2AA198
+set_from_resource $bg i3wm.color0 #1F2D3A
+
 #gaps settings
 for_window [class="^.*"] border pixel 3
 for_window [class="Thunar"] floating enable
 for_window [class="I3-exit" instance="i3-exit"] floating enable
-gaps inner 15 
-gaps outer 0
-client.focused  #2AA198 #00C1FF #000088 #2AA198  #2AA198
-client.focused_inactive  #1F2D3A #2C2C2C  #ffffff #1F2D3A #1F2D3A
-client.unfocused  #1F2D3A #2C2C2C #ffffff #1F2D3A #1F2D3A
-client.urgent  #1F2D3A #00C1FF #000088 #1F2D3A #1F2D3A
-client.placeholder  #1F2D3A #00C1FF #000088 #1F2D3A #1F2D3A
+for_window [class="Engrampa"] floating enable
+for_window [class="Viewnior"] floating enable
+gaps inner 30
+gaps outer 10
+#workspace 1 gaps inner 30
+#workspace 1 gaps outer 10
+#workspace 3 gaps inner 500
+#workspace 3 gaps outer 100
+
+#client.focused  #2AA198 #00C1FF #000088 #2AA198  #2AA198
+#client.focused_inactive  #1F2D3A #2C2C2C  #ffffff #1F2D3A #1F2D3A
+#client.unfocused  #1F2D3A #2C2C2C #ffffff #1F2D3A #1F2D3A
+#client.urgent  #1F2D3A #00C1FF #000088 #1F2D3A #1F2D3A
+#client.placeholder  #1F2D3A #00C1FF #000088 #1F2D3A #1F2D3A
+client.focused          $fg     $bg     $fg  $fg       $fg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
 #smart_gaps on
 
 #startup execs
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")"
 exec --no-startup-id compton
 exec --no-startup-id run_polybar.sh
 exec --no-startup-id mopidy
@@ -195,6 +212,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
-#        status_command i3status
+#		position top
+#       height 65
+#		mode hide
+#		hidden_state hide
 #}
 
