@@ -58,8 +58,8 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 #startup execs
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")"
 exec --no-startup-id compton
+exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")"
 exec --no-startup-id run_polybar.sh
 exec --no-startup-id mopidy
 #exec --no-startup-id xfce4-panel
@@ -70,11 +70,12 @@ exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e sh -c cava'
 exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e sh -c htop'
 exec_always --no-startup-id xautolock -time 10 -locker 'lock -pf GohuFont-for-Powerline'
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/i3/run_wal.sh
 
 #special binds
-bindsym Control+Shift+r exec rofi -show run
+bindsym Control+Shift+r exec '.config/i3/rofi.sh'
 bindsym Mod1+f exec thunar
-bindsym Control+r  exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu'
+bindsym Control+r  exec --no-startup-id i3-dmenu-desktop --dmenu='.config/i3/rofi_dmenu.sh'
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next

@@ -40,9 +40,10 @@ XTerm*faceSize: 11
 
 ! URxvt settings
 
-URxvt*font:              xft:GohuFont \Powerline:size=12,xft:GohuFont\ Powerline:size=13
-URxvt*boldFont:          xft:GohuFont \Powerline\:style=bold:size=12,xft:GohuFont\ Powerline:size=13
+URxvt*font:              xft:GohuFont Powerline:size=12,xft:Inconsolata for Powerline:size=12,xft:WenQuanYi Bitmap Song:size=8,xft:FreeSerif:style=Regular,xft:unifont
+URxvt*boldFont:          xft:GohuFont Powerline:style=bold:size=12,xft:Inconsolata for Powerline:size=13
 URxvt*loginShell:        true
+URxvt*cursorUnderline:   true
 URxvt*scrollBar:         false 
 URxvt*letterSpace:       -1
 !URxvt*scrollstyle:      plain 
