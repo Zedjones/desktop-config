@@ -5,4 +5,4 @@ if you want to use the weather script for polybar (.config/polybar/test2) you'll
 
 The locker I'm using for i3 is a mod of i3lock, and can be found here: https://github.com/meskarune/i3lock-fancy/tree/dualmonitors.
 
-My colors are using wal, you'll need it if you want my colors to work. You can get it here: https://github.com/dylanaraps/wal#i3
+My colors are generated using wal, you'll need it and my wallpaper if you want my colors to work. You can get it here: https://github.com/dylanaraps/wal#i3
