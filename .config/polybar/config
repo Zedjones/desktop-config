@@ -12,13 +12,14 @@
 background = #222
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+;foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 bg = ${xrdb:color0:#1F2D3A}
 fg = ${xrdb:color7:#2AA198}
+foreground = ${xrdb:color7:#2AA198}
 
 [bar/topr]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -26,8 +27,8 @@ monitor = ${env:MONITOR:DP-0}
 width = 2487
 height = 27
 offset-x = 37
-;offset-y = 0
-radius = 6.0
+offset-y = 2
+radius = 0.0
 fixed-center = false
 
 background = ${colors.bg}
@@ -66,7 +67,7 @@ modules-right =  volume weather date powermenu
 
 override-redirect = true
 
-;wm-restack = i3
+wm-restack = i3
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
 
@@ -76,12 +77,12 @@ scroll-down = i3wm-wsprev
 [bar/topl]
 ;monitor = ${env:MONITOR:HDMI-1}
 monitor = ${env:MONITOR:DVI-D-0}
-width = 1850
+width = 1848
 height = 27
 offset-x = 36
 ;override-redirect = true
-offset-y = 0
-radius = 6.0
+offset-y = 2
+radius = 0.0
 fixed-center = false
 
 background = ${colors.bg}
@@ -342,8 +343,8 @@ bar-volume-foreground-1 = ${colors.fg}
 bar-volume-foreground-2 = ${colors.fg}
 bar-volume-foreground-3 = ${colors.fg}
 bar-volume-foreground-4 = ${colors.fg}
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-5 = ${colors.fg}
+bar-volume-foreground-6 = ${colors.fg}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
