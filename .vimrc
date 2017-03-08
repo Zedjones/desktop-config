@@ -26,3 +26,7 @@ nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+
+set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim/
+set laststatus=2
+

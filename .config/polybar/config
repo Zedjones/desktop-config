@@ -49,9 +49,12 @@ module-margin-right = 1
 ;font-0 = fixed:pixelsize=10;1
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ;font-2 = siji:pixelsize=10;1
-font-0 = GohuFont\ Powerline:pixelsize=10;1
-font-1 = GohuFont\ Powerline:fontformat=truetype:size=8:antialias=false;0
-font-2 = GohuFont\ Powerline:pixelsize=10;1
+;font-0 = GohuFont\ Powerline:pixelsize=10;1
+;font-1 = GohuFont\ Powerline:fontformat=truetype:size=8:antialias=false;0
+;font-2 = GohuFont\ Powerline:pixelsize=10;1
+font-0 = FiraCode:pixelsize=10;1
+font-1 = Fira\ Code:fontformat=truetype:size=8:antialias=false;0
+font-2 = Fira\ Code:pixelsize=10;1
 
 modules-left =  i3 memory cpu 
 modules-center = mpd
@@ -103,9 +106,12 @@ module-margin-right = 1
 #font-0 = fixed:pixelsize=10;1
 #font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 #font-2 = siji:pixelsize=10;1
-font-0 = GohuFont\ Powerline:pixelsize=10;1
-font-1 = GohuFont\ Powerline:fontformat=truetype:size=8:antialias=false;0
-font-2 = GohuFont\ Powerline:pixelsize=10;1
+;font-0 = GohuFont\ Powerline:pixelsize=10;1
+;font-1 = GohuFont\ Powerline:fontformat=truetype:size=8:antialias=false;0
+;font-2 = GohuFont\ Powerline:pixelsize=10;1
+font-0 = FiraCode:pixelsize=10;1
+font-1 = FiraCode:fontformat=truetype:size=8:antialias=false;0
+font-2 = FiraCode:pixelsize=10;1
 
 modules-left =  i3 memory cpu
 modules-center = mpd
@@ -302,7 +308,7 @@ interval = 3.0
 ;format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected = RIT
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -436,7 +442,7 @@ screenchange-reload = true
 
 
 [global/wm]
-margin-top = 0
+margin-top = 500
 margin-bottom = 0
 
 ; vim:ft=dosini
