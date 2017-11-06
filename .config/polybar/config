@@ -29,7 +29,7 @@ height = 27
 offset-x = 37
 offset-y = 2
 radius = 0.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.bg}
 foreground = ${colors.foreground}
@@ -46,19 +46,15 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-;font-0 = fixed:pixelsize=10;1
-;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-;font-2 = siji:pixelsize=10;1
-;font-0 = GohuFont\ Powerline:pixelsize=10;1
-;font-1 = GohuFont\ Powerline:fontformat=truetype:size=8:antialias=false;0
-;font-2 = GohuFont\ Powerline:pixelsize=10;1
-font-0 = FiraCode:pixelsize=10;1
-font-1 = Fira\ Code:fontformat=truetype:size=8:antialias=false;0
-font-2 = Fira\ Code:pixelsize=10;1
+font-0 = ypn envypn:pixelsize=11;2
+font-1 = ypn envypn:fontformat=truetype:size=11:antialias=false;3
+font-2 = ypn envypn:pixelsize=11;2
+font-3 = FontAwesome:size=9;3
+font-4 = Unifont Upper:pixelsize=9;2
 
-modules-left =  i3 memory cpu 
-modules-center = mpd
-modules-right =  volume weather date powermenu
+modules-left =  i3 weather
+modules-center = memory cpu
+modules-right =  volume date
 
 ;tray-position = center
 ;tray-padding = 10
@@ -71,8 +67,6 @@ modules-right =  volume weather date powermenu
 override-redirect = true
 
 wm-restack = i3
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -83,10 +77,9 @@ monitor = ${env:MONITOR:DVI-D-0}
 width = 1848
 height = 27
 offset-x = 36
-;override-redirect = true
 offset-y = 2
 radius = 0.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.bg}
 foreground = ${colors.foreground}
@@ -103,35 +96,27 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-#font-0 = fixed:pixelsize=10;1
-#font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-#font-2 = siji:pixelsize=10;1
-;font-0 = GohuFont\ Powerline:pixelsize=10;1
-;font-1 = GohuFont\ Powerline:fontformat=truetype:size=8:antialias=false;0
-;font-2 = GohuFont\ Powerline:pixelsize=10;1
-font-0 = FiraCode:pixelsize=10;1
-font-1 = FiraCode:fontformat=truetype:size=8:antialias=false;0
-font-2 = FiraCode:pixelsize=10;1
+font-0 = ypn envypn:pixelsize=11;2
+font-1 = ypn envypn:fontformat=truetype:size=11:antialias=false;3
+font-2 = ypn envypn:pixelsize=11;2
+font-3 = FontAwesome:pixelsize=9;2
+font-4 = Unifont Upper:pixelsize=9;2
 
-modules-left =  i3 memory cpu
-modules-center = mpd
-modules-right =  volume weather date powermenu
+modules-left =  i3 weather
+modules-center = memory cpu
+modules-right =  volume date
 
 ;tray-position = right
 ;tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
 
-;wm-restack = bspwm
 wm-restack = i3 
 
 override-redirect = true
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 [module/xwindow]
 type = internal/xwindow
@@ -145,10 +130,10 @@ label = %title:0:30:...%
 #format-prefix-foreground = ${colors.foreground-alt}
 #format-prefix-underline = ${colors.secondary}
 
-#label-layout = %layout%
-#label-layout-underline = ${colors.secondary}
+#LABEL-LAYOUT = %LAYOUT%
+#LABEL-LAYOUT-UNDERLINE = ${COLORS.SECONDARY}
 
-#label-indicator-padding = 2
+#LABEL-INDICATOR-PADDING = 2
 #label-indicator-margin = 1
 #label-indicator-background = ${colors.secondary}
 #label-indicator-underline = ${colors.secondary}
@@ -168,8 +153,8 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = custom/script
 interval = 600
 format = <label>
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = "  "
+format-prefix-foreground = ${colors.fg}
 exec =  ~/.config/polybar/test2
 label = %output%
 
@@ -209,22 +194,26 @@ label-mode-background = ${colors.primary}
 label-focused = %index%
 ;label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${colors.fg}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-padding = 1.5
+;${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused-padding = 1.5
+;${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
 ;label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${colors.fg}
-label-visible-padding = ${self.label-focused-padding}
+label-visible-padding = 1.5
+;${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent-padding = 1.5
+;${module/bspwm.label-urgent-padding}
 
 [module/mpd]
 type = internal/mpd
@@ -273,8 +262,8 @@ label = CPU: %percentage%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = "      "
+format-prefix-foreground = ${colors.fg}
 ;format-underline = #4bffdc
 label = %gb_used% used 
 
@@ -321,29 +310,36 @@ type = internal/date
 interval = 1
 
 date = %a
-date-alt = " %m/%d/%Y"
+date-alt = "%m/%d/%Y"
 
 time = %I:%M %p
 time-alt = %I:%M:%S %p
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
+;format-prefix-foreground = ${colors.fg}
 ;format-underline = #0a6cf5
 
+format = <label>
+format-foreground = ${colors.fg}
 label = %date% %time%
+label-font = 0
 
 [module/volume]
 type = internal/volume
 
-format-volume = <label-volume> <bar-volume>
-#label-volume = VOL
-#label-volume-foreground = ${root.foreground}
+format-volume = <ramp-volume> <label-volume> <bar-volume>
+;label-volume = %percentage%%
+;label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+format-muted-foreground = ${colors.fg}
+label-muted = 🔇 sound muted
 
-bar-volume-width = 10
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+bar-volume-width = 7.5
 bar-volume-foreground-0 = ${colors.fg}
 bar-volume-foreground-1 = ${colors.fg}
 bar-volume-foreground-2 = ${colors.fg}
