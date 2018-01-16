@@ -1,1 +1,108 @@
-/home/zedjones/.Xresources
+#if __has_include(".extend.Xresources")
+#include ".extend.Xresources"
+#endif
+
+! ^ The above lines are no comments!
+! Leave them as they are if a file ~/.extend.Xresources is being used on your system.
+! config can be added there or also here below.
+! For comments use "!"
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+XTerm*background: #2b2b2b
+XTerm*foreground: #e7e7e7
+XTerm*pointerColor: #16A085
+XTerm*faceName: Fixed
+XTerm*faceSize: 11
+
+#define base00 #282936
+#define base01 #3a3c4e
+#define base02 #4d4f68
+#define base03 #626483
+#define base04 #62d6e8
+#define base05 #e9e9f4
+#define base06 #f1f2f8
+#define base07 #f7f7fb
+#define base08 #ea51b2
+#define base09 #b45bcf
+#define base0A #00f769
+#define base0B #ebff87
+#define base0C #a1efe4
+#define base0D #62d6e8
+#define base0E #b45bcf
+#define base0F #00f769
+
+! URxvt settings
+
+!URxvt*font:              xft:Dina:style=regular:size=11,xft:Inconsolata for Powerline:size=12,xft:WenQuanYi Bitmap Song:size=8,xft:FreeSerif:style=Regular,xft:unifont
+!URxvt*boldFont:          xft:Dina:style=regular:size=11,xft:Inconsolata for Powerline:size=13
+URxvt*font:              xft:ypn envypn:size=11,xft:Inconsolata for Powerline:size=12,xft:WenQuanYi Bitmap Song:size=8,xft:FreeSerif:style=Regular,xft:unifont
+URxvt*boldFont:          xft:ypn envypn:size=11,xft:Inconsolata for Powerline:size=13
+URxvt*faceName:			 ypn envypn
+URxvt*loginShell:        true
+URxvt*cursorUnderline:   true
+URxvt*scrollBar:         false 
+URxvt*letterSpace:       0
+!URxvt*scrollstyle:      plain 
+!URxvt*scrollBar_right:  true
+URxvt*termName:          rxvt
+URxvt.buffered:          true
+URxvt.perl-ext:          default,matcher
+URxvt.urlLauncher:       /usr/bin/google-chrome-stable
+URxvt.matcher.button:    1 
+URxvt.transparent:       False
+URxvt.shading:           5
+URxvt.internalBorder:    20
+URxvt.externalBorder:	 0
+
+URxvt*foreground:   #1abc9c
+!URxvt*background:   #1F2D3A
+URxvt*cursorColor:  #1abc9c
+
+URxvt*color0:       #2c3e50
+URxvt*color1:       #c0392b
+URxvt*color2:       #27ae60
+URxvt*color3:       #f39c12
+URxvt*color4:       #2980b9
+URxvt*color5:       #8e44ad
+URxvt*color6:       #16a085
+URxvt*color7:       #bdc3c7
+
+URxvt*color8:       #34495e
+URxvt*color9:       #e74c3c
+URxvt*color10:      #2ecc71
+URxvt*color11:      #f1c40f
+URxvt*color12:      #3498db
+URxvt*color13:      #9b59b6
+URxvt*color14:      #2AA198
+URxvt*color15:      #ecf0f1
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+URxvt*color16:      base09
+URxvt*color17:      base0F
+URxvt*color18:      base01
+URxvt*color19:      base02
+URxvt*color20:      base04
+URxvt*color21:      base06
+
+URxvt*keysym.Shift-Control-V: perl:clipboard:paste
+ 
+URxvt*iso14755: False
+ 
+URxvt*perl-ext-common: default,clipboard
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------!
+rofi.color-enabled: true
+rofi.color-window: #273238, #273238, #1e2529
+rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
