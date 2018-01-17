@@ -1,0 +1,378 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+;background = ${xrdb:color0:#222}
+background = #222
+background-alt = #444
+;foreground = ${xrdb:color7:#222}
+;foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+bg = ${xrdb:color0:#1F2D3A}
+fg = ${xrdb:color7:#2AA198}
+foreground = ${xrdb:color7:#2AA198}
+icon_color = ${xrdb:color12:#2AA198}
+
+[bar/topr]
+;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:DP-0}
+width = 2489
+height = 27
+offset-x = 35
+offset-y = 2
+radius = 0.0
+fixed-center = true
+
+background = ${colors.bg}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 4
+border-color = #00000000
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = ypn envypn:pixelsize=11;2
+font-1 = ypn envypn:fontformat=truetype:size=11:antialias=false;3
+font-2 = ypn envypn:pixelsize=11;2
+font-3 = FontAwesome:size=9;2
+font-4 = Unifont Upper:pixelsize=11;2
+font-5 = symbols:pixelsize=10;2
+font-6 = FuraMono Nerd Font Mono:pixelsize=14;4
+font-7 = Unifont:pixelsize=14;2
+
+modules-left =  i3right weather
+modules-center = memory cpu
+modules-right =  to-do updates volume date power-label
+
+;tray-position = center
+;tray-padding = 10
+;tray-transparent = true
+;tray-background = #0063ff
+;tray-offset-x = 10
+
+;wm-restack = bspwm
+
+override-redirect = true
+
+wm-restack = i3
+
+scroll-up = i3wm-wsprev
+scroll-down = i3wm-wsnext
+
+[bar/topl]
+;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:DVI-D-0}
+width = 1848
+height = 27
+offset-x = 36
+offset-y = 2
+radius = 0.0
+fixed-center = true
+
+background = ${colors.bg}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 4
+border-color = #00000000
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = ypn envypn:pixelsize=11;2
+font-1 = ypn envypn:fontformat=truetype:size=11:antialias=false;3
+font-2 = ypn envypn:pixelsize=11;2
+font-3 = FontAwesome:pixelsize=9;2
+font-4 = Unifont Upper:pixelsize=11;2.5
+font-5 = symbols:pixelsize=10;2
+font-6 = FuraMono Nerd Font Mono:pixelsize=14;4
+
+modules-left =  i3 weather
+modules-center = memory cpu
+modules-right =  to-do updates volume date power-label
+
+;tray-position = right
+;tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+wm-restack = i3 
+
+override-redirect = true
+
+scroll-up = i3wm-wsprev
+scroll-down = i3wm-wsnext
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+#label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted = root: %used%/%total%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/weather]
+type = custom/script
+interval = 600
+format = <label>
+format-prefix = 
+format-prefix-foreground = ${colors.icon_color}
+exec =  ~/.config/polybar/test2
+label = %output%
+click-left = ~/.config/polybar/weather_launch.sh
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+[module/i3]
+
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;;
+ws-icon-default = 
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-foreground = ${colors.icon_color}
+label-focused-background = ${colors.bg}
+label-focused-underline = ${colors.bg}
+label-focused-padding = 1.5
+;${module/bspwm.label-focused-padding}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 1.5
+;${module/bspwm.label-occupied-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-foreground = ${colors.icon_color}
+label-visible-background = ${colors.bg}
+label-visible-underline = ${colors.bg}
+label-visible-padding = 1.5
+;${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = 1.5
+;${module/bspwm.label-urgent-padding}
+
+[module/i3right]
+inherit = module/i3
+ws-icon-default = 
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song> <label-time> <icon-prev> <icon-stop> <toggle> <icon-next>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-time = (%elapsed%/%total%)
+label-song-maxlen = 100
+label-song-ellipsis = true
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.icon_color}
+;format-underline = #f90000
+label = %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.icon_color}
+;format-underline = #4bffdc
+label = %gb_used% 
+
+[module/eth]
+type = internal/network
+interface = eno1
+interval = 3.0
+
+;format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = RIT
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %a
+date-alt = "%m/%d/%Y"
+
+time = %I:%M %p
+time-alt = %I:%M:%S %p
+
+format-prefix = " "
+format-prefix-foreground = ${colors.icon_color}
+;format-underline = #0a6cf5
+
+format = <label>
+format-foreground = ${colors.fg}
+label = %date% %time%
+label-font = 0
+
+[module/volume]
+type = internal/volume
+
+ramp-volume-foreground = ${colors.icon_color}
+format-volume = <ramp-volume> <label-volume>
+;label-volume = %percentage%%
+;label-volume-foreground = ${root.foreground}
+
+format-muted-foreground = ${colors.icon_color}
+label-muted = 🔇 sound muted
+
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+bar-volume-width = 7.5
+bar-volume-foreground-0 = ${colors.fg}
+bar-volume-foreground-1 = ${colors.fg}
+bar-volume-foreground-2 = ${colors.fg}
+bar-volume-foreground-3 = ${colors.fg}
+bar-volume-foreground-4 = ${colors.fg}
+bar-volume-foreground-5 = ${colors.fg}
+bar-volume-foreground-6 = ${colors.fg}
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 3
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+;format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+;format-warn-underline = ${self.format-underline}
+
+label = CPU: %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+[module/updates]
+type = custom/script
+interval = 10
+format = "<label>"
+format-prefix = "  "
+format-prefix-foreground = ${colors.icon_color}
+exec = ~/.config/polybar/pkg 
+exec-if = "ping -q -w 2 -c 1 8.8.8.8 > /dev/null"
+click-left = urxvt --hold -e zsh -c "pacaur -Syu"
+
+[module/power-label]
+type = custom/text
+content = " ⏻ "
+
+content-foreground = ${colors.bg}
+content-background = ${colors.fg}
+click-left = ~/.config/i3/i3-exit
+
+[module/to-do]
+type = custom/script
+interval = 10
+format-prefix = "  "
+format-prefix-foreground = ${colors.icon_color}
+format = "<label>"
+exec = "did log -n100 | grep -Ev 'done' | wc -l"
+click-left = ~/.config/polybar/notify-send.sh
+click-right = urxvt --hold -e zsh -c "~/.config/polybar/did-log-no-color.sh" 
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+
+[global/wm]
+margin-top = 500
+margin-bottom = 0
+
+; vim:ft=dosini

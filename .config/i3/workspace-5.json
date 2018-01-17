@@ -1,0 +1,25 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 5,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 798,
+       "width": 1494,
+       "x": 0,
+       "y": 0
+    },
+    "name": "zedjones - File Manager",
+    "percent": 1,
+    "swallows": [
+       {
+        "class": "^Thunar$",
+        "instance": "^thunar$",
+       // "title": "^zedjones\\ \\-\\ File\\ Manager$",
+        "transient_for": "^$"
+       // "window_role": "^Thunar\\-1512451483\\-2459316256$"
+       }
+    ],
+    "type": "con"
+}
+

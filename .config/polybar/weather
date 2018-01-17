@@ -1,0 +1,14 @@
+#!/bin/python3
+
+import urllib.request, json
+import forecastio
+
+city = "Brighton,NY"
+api_key = "d22af580b138bc11cf14c90ac8741c32" 
+
+weather = eval(str(urllib.request.urlopen("http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&APPID={}".format(city, api_key)).read())[2:-1])
+
+info = weather["weather"][0]["description"].capitalize()
+temp = int(float(weather["main"]["temp"]))
+
+print("%s, %i °F" % (info, temp))

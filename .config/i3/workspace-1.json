@@ -1,0 +1,25 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1354,
+       "width": 1219,
+       "x": 3218,
+       "y": 43
+    },
+    "name": "Home - Google Chrome",
+    "percent": 1,
+    "swallows": [
+       {
+       "class": "Google-chrome",
+       "instance": "google-chrome",
+       //"title": "^Home\\ \\-\\ Google\\ Chrome$",
+       "transient_for": "^$",
+       "window_role": "^browser$"
+       }
+    ],
+    "type": "con"
+}
+

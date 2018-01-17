@@ -1,0 +1,12 @@
+#!/bin/bash
+# Description: Check pacman updates.
+
+. $HOME/.cache/wal/colors.sh
+
+pac=$(checkupdates | wc -l)
+
+if [[ -n "$pac" ]];then
+        echo "$pac"
+else
+        echo "0"
+fi

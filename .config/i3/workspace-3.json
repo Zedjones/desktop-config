@@ -1,0 +1,47 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 5,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 364,
+       "width": 564,
+       "x": 0,
+       "y": 0
+    },
+    "name": "zedjones@zedjones-desktop: ~",
+    "percent": 0.5,
+    "swallows": [
+       {
+        "class": "^URxvt$",
+        "instance": "^urxvt$",
+        //"title": "^zedjones\\@zedjones\\-desktop\\:\\ \\~$",
+        "transient_for": "^$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 5,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 364,
+       "width": 564,
+       "x": 0,
+       "y": 0
+    },
+    "name": "zedjones@zedjones-desktop: ~",
+    "percent": 0.5,
+    "swallows": [
+       {
+        "class": "^URxvt$",
+        "instance": "^urxvt$",
+        //"title": "^zedjones\\@zedjones\\-desktop\\:\\ \\~$",
+        "transient_for": "^$"
+       }
+    ],
+    "type": "con"
+}
+
