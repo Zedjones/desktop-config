@@ -88,7 +88,6 @@ exec --no-startup-id i3-msg 'workspace 2; exec urxvt -e sh -c ncmpcpp'
 exec --no-startup-id i3-msg 'workspace 3; exec urxvt'
 exec --no-startup-id i3-msg 'workspace 3; exec urxvt'
 exec --no-startup-id i3-msg 'workspace 5; exec thunar'
-exec --no-startup-id sleep 1
 exec --no-startup-id i3-msg 'workspace 6; exec foxitreader'
 exec --no-startup-id i3-msg 'workspace 4; exec /usr/bin/google-chrome-stable'
 exec --no-startup-id sleep 2; i3-msg workspace 2; i3-msg workspace 1

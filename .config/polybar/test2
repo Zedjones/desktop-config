@@ -1,9 +1,9 @@
 #!/bin/python3
 
 import forecastio, re
-api_key = "INSERT_YOUR_KEY"
-lon = LONGITUDE
-lat = LATITUDE
+api_key = "15daac36fda217a54624e5721ed7534f"
+lon = -77.681756
+lat = 43.083575
 
 forecast = forecastio.load_forecast(api_key, lat, lon)
 byHour = forecast.hourly()
@@ -25,5 +25,19 @@ if "," in byHour.summary:
 if "starting" in byHour.summary:
 	later = [match.start() for match in re.finditer(r'starting', byHour.summary)]
 	byHour.summary = byHour.summary[:later[0]]
-print("Now: " + current.summary +", "+ str(int(current.temperature)) + " °F" + " | Later: " + byHour.summary)
+if "Cloudy" in current.summary or "cloudy" in current.summary or "Overcast" in current.summary or "overcast" in current.summary:
+    current.summary = "🌥 " + current.summary
+elif "Sunny" in current.summary or "sunny" in current.summary or "clear" in current.summary or "Clear" in current.summary:
+    current.summary = " " + current.summary
+elif "Rain" in current.summary or "rain" in current.summary or "drizzle" in current.summary or "Drizzle" in current.summary:
+    current.summary = "🌧 " + current.summary
+elif "Snow" in current.summary or "snow" in current.summary or "flurries" in current.summary or "Flurries" in current.summary:
+    current.summary = "⛇ " + current.summary
+elif "storm" in current.summary or "Storm" in current.summary:
+    current.summary = "🌩 " + current.summary
+elif "mist" in current.summary or "Mist" in current.summary or "Foggy" in current.summary or "foggy" in current.summary:
+    current.summary = "🌫 " + current.summary
+else:
+    current.summary = "🌎 " + current.summary
+print(current.summary +", "+ str(int(current.temperature)) + " °F" + " | " + byHour.summary)
 
